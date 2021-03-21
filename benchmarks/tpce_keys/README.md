@@ -1,4 +1,4 @@
-* TPC-E keys: Data sets that contains 64-bit integer keys for TPC-E tables:
+**TPC-E Keys: Data sets that contains 64-bit integer keys for TPC-E tables:**
 - Company (7500 keys)
 - Customers (15000 keys)
 - Address (22504 keys)
