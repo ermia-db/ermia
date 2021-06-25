@@ -5040,10 +5040,12 @@ class tpce_growing_loader : public bench_loader, public tpce_worker_mixin {
       holdingSummaryBuffer.newLoadUnit();
       holdingBuffer.newLoadUnit();
 
-    std::cerr << "In progress - Trade: exported " << n_exported_trade_keys << " keys" << std::endl;
-    std::cerr << "In progress - Settlement: exported " << n_exported_settlement_keys << " keys" << std::endl;
-    std::cerr << "In progress - CashTransaction: exported " << n_exported_cash_transaction_keys << " keys" << std::endl;
-    std::cerr << "In progress - Broker: exported " << n_exported_broker_keys << " keys" << std::endl;
+#ifdef EXPORT_TPCE_INT64_KEYS
+      std::cerr << "In progress - Trade: exported " << n_exported_trade_keys << " keys" << std::endl;
+      std::cerr << "In progress - Settlement: exported " << n_exported_settlement_keys << " keys" << std::endl;
+      std::cerr << "In progress - CashTransaction: exported " << n_exported_cash_transaction_keys << " keys" << std::endl;
+      std::cerr << "In progress - Broker: exported " << n_exported_broker_keys << " keys" << std::endl;
+#endif
 
     } while (pGenerateAndLoad->hasNextLoadUnit());
 
