@@ -18,7 +18,7 @@ inline void XLock(OID *lock) {
     int32_t *ptr = reinterpret_cast<int32_t *>(lock);
     int32_t expected = 0;
     int32_t locked = expected | LOCK_MASK;
-    while (*ptr != expected or 
+    while (volatile_read(*ptr) != expected or 
             !__atomic_compare_exchange_n(ptr, &expected, locked, false, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST)) {
         expected = 0;
     }
